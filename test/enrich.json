@@ -1,0 +1,15 @@
+{
+  "56.0.0.0/16": {
+    "AcmeCorp.DeptName": "SRE",
+    "AcmeCorp.Environments": [
+      "development",
+      "staging",
+      "production"
+    ]
+  },
+  "10.10.10.10/32": {
+    "country": {
+      "isocode": "PRIVATE"
+    }
+  }
+}

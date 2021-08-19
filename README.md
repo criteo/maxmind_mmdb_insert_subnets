@@ -1,14 +1,14 @@
 # maxmind_mmdb_insert_subnets
 
-Insert subnets with country information into an existing mmdb file
+Enrich mmdb file base on a json source.
 
-( Used at Criteo for CI testing purpose )
+Used at Criteo for CI testing purpose. 
 
 Usage:
-```./insert_subnet -source="GeoLite2-Country.mmdb" -dest="GeoLite2-Country-new.mmdb" -subnet=10.10.10.10/32 -country="SPACE"```
+```./mmdb_enrich -source="GeoLite2-Country.mmdb" -dest="GeoLite2-Country-new.mmdb" -infos=test/enrich.json```
  
-TODO:
-   - Insert more than 1 subnet
-   - Update not only country.
 
+Base on https://github.com/maxmind/mmdb-from-go-blogpost
 
+TODO
+- Create tests

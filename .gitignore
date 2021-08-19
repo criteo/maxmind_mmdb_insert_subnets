@@ -5,7 +5,7 @@
 *.so
 *.dylib
 
-insert_subnet
+mmdb_enrich
 
 # Test binary, built with `go test -c`
 *.test

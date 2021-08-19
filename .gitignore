@@ -5,6 +5,8 @@
 *.so
 *.dylib
 
+insert_subnet
+
 # Test binary, built with `go test -c`
 *.test
 

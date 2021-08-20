@@ -10,7 +10,6 @@ import (
 	"log"
 	"net"
 	"os"
-	"reflect"
 )
 
 func toMmdb(object interface{}) mmdbtype.DataType {
@@ -36,7 +35,7 @@ func toMmdb(object interface{}) mmdbtype.DataType {
 		}
 		return slice
 	default:
-		log.Fatal("Type unknown :", reflect.TypeOf(object))
+		log.Fatalf("Type unknown : %T", object)
 	}
 	return nil
 }

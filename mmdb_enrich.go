@@ -18,7 +18,7 @@ func to_mmdb(object interface{}) mmdbtype.DataType {
 	case string:
 		return mmdbtype.String(t) // t has type string
 	case int:
-		return mmdbtype.Int32(t)
+		return mmdbtype.Uint64(t)
 	case float32:
 		return mmdbtype.Float32(t)
 	case float64:

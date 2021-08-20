@@ -13,7 +13,7 @@ import (
 	"reflect"
 )
 
-func to_mmdb(object interface{}) mmdbtype.DataType {
+func toMmdb(object interface{}) mmdbtype.DataType {
 	switch t := object.(type) {
 	case string:
 		return mmdbtype.String(t) // t has type string
@@ -26,13 +26,13 @@ func to_mmdb(object interface{}) mmdbtype.DataType {
 	case map[string]interface{}:
 		record := mmdbtype.Map{}
 		for k, v := range t {
-			record[mmdbtype.String(k)] = to_mmdb(v)
+			record[mmdbtype.String(k)] = toMmdb(v)
 		}
 		return record
 	case []interface{}:
 		slice := mmdbtype.Slice{}
 		for _, v := range t {
-			slice = append(slice, to_mmdb(v))
+			slice = append(slice, toMmdb(v))
 		}
 		return slice
 	default:
@@ -43,16 +43,16 @@ func to_mmdb(object interface{}) mmdbtype.DataType {
 
 func main() {
 
-	source_mmdb_file_name := flag.String("source", "GeoIP2-City.mmdb", "source file name")
-	destination_mmdb_file_name := flag.String("dest", "GeoIP2-City-new.mmdb", "destination file name")
-	infos_file := flag.String("infos", "XX", "filename with infos")
+	mmdbFileName := flag.String("source", "GeoIP2-City.mmdb", "source file name")
+	destinationMmdbFileName := flag.String("dest", "GeoIP2-City-new.mmdb", "destination file name")
+	infosFile := flag.String("infos", "XX", "filename with infos")
 	flag.Parse()
 
-	writer, err := mmdbwriter.Load(*source_mmdb_file_name, mmdbwriter.Options{IncludeReservedNetworks: true})
+	writer, err := mmdbwriter.Load(*mmdbFileName, mmdbwriter.Options{IncludeReservedNetworks: true})
 	if err != nil {
 		log.Fatal(err)
 	}
-	yamlFile, err := ioutil.ReadFile(*infos_file)
+	yamlFile, err := ioutil.ReadFile(*infosFile)
 	if err != nil {
 		log.Printf("yamlFile.Get err   #%v ", err)
 	}
@@ -69,14 +69,14 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		sreData := to_mmdb(info)
+		sreData := toMmdb(info)
 		if err := writer.InsertFunc(sreNet, inserter.TopLevelMergeWith(sreData)); err != nil {
 			log.Fatal(err)
 		}
 	}
 
 	// Write the newly enriched DB to the filesystem.
-	fh, err := os.Create(*destination_mmdb_file_name)
+	fh, err := os.Create(*destinationMmdbFileName)
 	if err != nil {
 		log.Fatal(err)
 	}

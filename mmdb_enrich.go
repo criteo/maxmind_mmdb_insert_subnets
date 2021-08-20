@@ -10,12 +10,19 @@ import (
 	"log"
 	"net"
 	"os"
+	"reflect"
 )
 
 func to_mmdb(object interface{}) mmdbtype.DataType {
 	switch t := object.(type) {
 	case string:
 		return mmdbtype.String(t) // t has type string
+	case int:
+		return mmdbtype.Int32(t)
+	case float32:
+		return mmdbtype.Float32(t)
+	case float64:
+		return mmdbtype.Float64(t)
 	case map[string]interface{}:
 		record := mmdbtype.Map{}
 		for k, v := range t {
@@ -28,6 +35,8 @@ func to_mmdb(object interface{}) mmdbtype.DataType {
 			slice = append(slice, to_mmdb(v))
 		}
 		return slice
+	default:
+		log.Fatal("Type unknown :", reflect.TypeOf(object))
 	}
 	return nil
 }

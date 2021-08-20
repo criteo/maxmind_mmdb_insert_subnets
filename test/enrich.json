@@ -9,7 +9,73 @@
   },
   "10.10.10.10/32": {
     "country": {
-      "isocode": "PRIVATE"
+      "iso_code": "PRIVATE"
     }
+  },
+  "10.10.10.11/32": {
+    "city": {
+      "geoname_id": 6325494,
+      "names": {
+        "de": "Quebec",
+        "en": "Québec",
+        "es": "Quebec",
+        "fr": "Québec",
+        "pt-BR": "Quebec",
+        "ru": "Квебек"
+      }
+    },
+    "continent": {
+      "code": "NA",
+      "geoname_id": 6255149,
+      "names": {
+        "de": "Nordamerika",
+        "en": "North America",
+        "es": "Norteamérica",
+        "fr": "Amérique du Nord",
+        "pt-BR": "América do Norte",
+      }
+    },
+    "country": {
+      "geoname_id": 6251999,
+      "iso_code": "CA",
+      "names": {
+        "de": "Kanada",
+        "en": "Canada",
+        "es": "Canadá",
+        "fr": "Canada",
+        "pt-BR": "Canadá",
+        "ru": "Канада"
+      }
+    },
+    "location": {
+      "accuracy_radius": 5,
+      "latitude": 46.7949,
+      "longitude": -71.247,
+      "time_zone": "America/Toronto"
+    },
+    "postal": {
+      "code": "G1S"
+    },
+    "registered_country": {
+      "geoname_id": 6251999,
+      "iso_code": "CA",
+      "names": {
+        "de": "Kanada",
+        "en": "Canada",
+        "es": "Canadá",
+        "fr": "Canada"
+      }
+    },
+    "subdivisions": [
+      {
+        "geoname_id": 6115047,
+        "iso_code": "QC",
+        "names": {
+          "en": "Quebec",
+          "fr": "Québec",
+          "pt-BR": "Quebeque"
+        }
+      }
+    ]
   }
 }
